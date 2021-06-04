@@ -21,7 +21,7 @@ export const SearchResult = ({ location, history }) => {
         data.sort((a, b) => a.watchers_count - b.watchers_count)
         setRepos(data)
       });
-    axios.get(`http://localhost:3200/starredRepos/${uname}`).then(response => {
+    axios.get(`http://https://github-app-server.herokuapp.com/starredRepos/${uname}`).then(response => {
       setStarredRepos(response.data.user.starredRepos);
     })
 
@@ -29,7 +29,7 @@ export const SearchResult = ({ location, history }) => {
 
   function starRepo(repoName, isAlreadyStarred) {
     const uname = getWithExpiry("uname");
-    axios.get(`http://localhost:3200/starRepo/${uname + "/" + repoName + (isAlreadyStarred ? "/remove" : "/add")}`).then(response => {
+    axios.get(`http://https://github-app-server.herokuapp.com/starRepo/${uname + "/" + repoName + (isAlreadyStarred ? "/remove" : "/add")}`).then(response => {
       let updatedStarredRepos = [...starredRepos];
       if (isAlreadyStarred) {
         updatedStarredRepos = starredRepos.filter(repo => repo !== repoName);

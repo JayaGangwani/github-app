@@ -14,7 +14,7 @@ export const Login = ({ history, location }) => {
         if (!userName || !password) return;
         if (isSignUp && password !== confirmPass) return;
 
-        axios.post(`http://localhost:3200/${isSignUp ? "signup" : "login"}`, { userName, password }).then(res => {
+        axios.post(`http://https://github-app-server.herokuapp.com/${isSignUp ? "signup" : "login"}`, { userName, password }).then(res => {
             if (isSignUp) {
                 history.push("/");
             } else {
@@ -51,15 +51,15 @@ export const Login = ({ history, location }) => {
                                                 <input type="password" class="form-control form-control-lg rounded-0" id="pwd1" required="required" autocomplete="new-password" onChange={(e) => setPassword(e.target.value)} />
                                                 <div class="invalid-feedback">Enter your password too!</div>
                                             </div>
-                                            
+
                                             {isSignUp && <div class="form-group">
                                                 <label>Confirm Password</label>
                                                 <input type="password" class="form-control form-control-lg rounded-0" id="pwd1" required="required" autocomplete="new-password" onChange={(e) => setConfirmPass(e.target.value)} />
                                                 <div class="invalid-feedback">Enter your password too!</div>
                                             </div>}
-                                            
-                                     <button type="submit" class="btn btn-success btn-lg float-right" id="btnLogin">{isSignUp ? "Signup" : "Login"}</button>
-                                     <Link to={isSignUp?"/": "/signup"}>{`${!isSignUp? "Signup": "login"}`}</Link>
+
+                                            <button type="submit" class="btn btn-success btn-lg float-right" id="btnLogin">{isSignUp ? "Signup" : "Login"}</button>
+                                            <Link to={isSignUp ? "/" : "/signup"}>{`${!isSignUp ? "Signup" : "login"}`}</Link>
                                         </form>
                                     </div>
                                 </div>
