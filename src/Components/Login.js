@@ -24,8 +24,9 @@ export const Login = ({ history, location }) => {
             }
         }).catch(() => {
             localStorage.removeItem("token");
+            alert("Please Signup first");
         });
-        // history.push("/search"); // if server is not running for simplicity
+        
     }
 
     return (
