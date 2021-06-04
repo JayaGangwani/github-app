@@ -14,7 +14,7 @@ export const Login = ({ history, location }) => {
         if (!userName || !password) return;
         if (isSignUp && password !== confirmPass) return;
 
-        axios.post(`http://https://github-app-server.herokuapp.com/${isSignUp ? "signup" : "login"}`, { userName, password }).then(res => {
+        axios.post(`https://github-app-server.herokuapp.com/${isSignUp ? "signup" : "login"}`, { userName, password }).then(res => {
             if (isSignUp) {
                 history.push("/");
             } else {

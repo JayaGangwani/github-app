@@ -12,7 +12,7 @@ export const Gitrepo = ({ history, location }) => {
   useEffect(() => {
     isAuthenticated(history);
     const uname = getWithExpiry("uname");
-    axios.get(`http://https://github-app-server.herokuapp.com/starredRepos/${uname}`).then(response => {
+    axios.get(`https://github-app-server.herokuapp.com/starredRepos/${uname}`).then(response => {
       setStarredRepos(response.data.user.starredRepos);
       console.log(response.data.user.starredRepos);
     })
